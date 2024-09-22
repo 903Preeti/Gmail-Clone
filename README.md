@@ -44,3 +44,52 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+
+
+
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDRZYou-XenB8xyCs3xrXQdOOLiG1oIGXE",
+  authDomain: "clone-yt-27d93.firebaseapp.com",
+  projectId: "clone-yt-27d93",
+  storageBucket: "clone-yt-27d93.appspot.com",
+  messagingSenderId: "492581658782",
+  appId: "1:492581658782:web:d17b73905e74a686605b8f",
+  measurementId: "G-62L17XH1RD"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+
+
+
+
+<Router>
+  {!user ? (
+    <Login />
+    ) : (
+      <div className="app">
+        <Header />
+        <div className='app_body'>
+          <Sidebar />
+          <Routes>
+            <Route path="/mail" element= {<Mail />} />
+            <Route path="/" element= {<EmailList />} />
+          </Routes>
+        </div>
+        {sendMessageIsOpen && <SendMail />}
+      </div>
+    )
+  }
+</Router>
