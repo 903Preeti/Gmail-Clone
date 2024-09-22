@@ -9,13 +9,11 @@ import EmailList from './EmailList.js';
 import SendMail from './SendMail.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectSendMessageIsOpen } from './features/mailSlice.js';
-import { login, selectUser } from './features/userSlice.js';
-import Login from './Login.js';
+import { login } from './features/userSlice.js';
 import { auth } from './firebase.js';
 
 function App() {
     const sendMessageIsOpen = useSelector(selectSendMessageIsOpen);
-    const user = useSelector(selectUser);
     const dispatch = useDispatch(); 
 
     useEffect(() => {
