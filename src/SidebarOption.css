@@ -20,6 +20,11 @@
     font-weight: 800 !important;
 }
 
+.sidebar--active{
+    background-color: #fcecec;
+    color: #c04b37;
+    font-weight: 800 !important;
+}
 .sidebarOption > .MuiSvgIcon-root {
     padding: 5px;
 }

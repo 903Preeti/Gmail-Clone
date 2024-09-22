@@ -5,24 +5,16 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { closeSendMessage } from './features/mailSlice';
-import firebase from 'firebase/compat/app';
-import { db } from './firebase.js';
+// import firebase from 'firebase/compat/app';
+// import { db } from './firebase.js';
 
 function SendMail() {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const dispatch = useDispatch();
 
     const onSubmit = (formData) => {
-        db.collection('emails').add({
-            to: formData.to,
-            subject: formData.subject,
-            message: formData.message,
-            Timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        }).then(() => {
-            dispatch(closeSendMessage());
-        }).catch((error) => {
-            console.error("Error sending email: ", error);
-        });
+        dispatch(closeSendMessage())
+
     }
 
     return (
